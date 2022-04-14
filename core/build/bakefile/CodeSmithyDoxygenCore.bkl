@@ -1,0 +1,41 @@
+toolsets = gnu vs2019 vs2017 vs2015 vs2013;
+
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2019.solutionfile = ../vc16/CodeSmithyDoxygenCore.sln;
+vs2017.solutionfile = ../vc15/CodeSmithyDoxygenCore.sln;
+vs2015.solutionfile = ../vc14/CodeSmithyDoxygenCore.sln;
+vs2013.solutionfile = ../vc12/CodeSmithyDoxygenCore.sln;
+
+library CodeSmithyDoxygenCore
+{
+    includedirs += ../../../include/CodeSmithy/Doxygen/Core;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        outputdir = ../../../lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        archs = x86 x86_64;
+        outputdir = ../../../lib/$(arch);
+    }
+
+    if ($(config) == Debug)
+    {
+        basename = CodeSmithyDoxygenCore-d;
+    }
+
+    headers
+    {
+        ../../../include/CodeSmithy/Doxygen/Core.hpp
+        ../../../include/CodeSmithy/Doxygen/Core/linkoptions.hpp
+        ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLOutput.hpp
+    }
+
+    sources
+    {
+        ../../src/DoxygenXMLOutput.cpp
+    }
+}
