@@ -1,3 +1,6 @@
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/xml/include/Ishiko/XML.bkl;
+
 toolsets = gnu vs2019 vs2017 vs2015 vs2013;
 
 gnu.makefile = ../gnumake/GNUmakefile;
@@ -6,7 +9,7 @@ vs2017.solutionfile = ../vc15/CodeSmithyDoxygenCore.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyDoxygenCore.sln;
 vs2013.solutionfile = ../vc12/CodeSmithyDoxygenCore.sln;
 
-library CodeSmithyDoxygenCore
+library CodeSmithyDoxygenCore : IshikoXML
 {
     includedirs += ../../../include/CodeSmithy/Doxygen/Core;
 

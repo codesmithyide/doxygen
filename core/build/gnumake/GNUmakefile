@@ -33,6 +33,16 @@ override CXXFLAGS += -O2
 else ifneq (,$(config))
 $(warning Unknown configuration "$(config)")
 endif
+#
+# Additionally, this makefile is customizable with the following
+# settings:
+#
+#      ISHIKO_CPP_ERRORS_ROOT        Path to the Ishiko Errors installation
+#      ISHIKO_CPP_BASEPLATFORM_ROOT  Path to the Ishiko BasePlatform installation
+#      ISHIKO_CPP_BOOST_ROOT         Path to the Boost installation
+#      ISHIKO_CPP_FILESYSTEM_ROOT    Path to the Ishiko FileSystem installation
+#      ISHIKO_CPP_PUGIXML_ROOT       Path to the pugixml installation
+#      ISHIKO_CPP_XML_ROOT           Path to the Ishiko XML installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -54,6 +64,26 @@ _builddir := $(if $(findstring $(abspath $(builddir)),$(builddir)),,../../)$(bui
 _builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
 $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
 endif
+
+# ------------
+# Configurable settings:
+# 
+
+# Path to the Ishiko Errors installation
+ISHIKO_CPP_ERRORS_ROOT ?= $(ISHIKO_CPP)/errors
+# Path to the Ishiko BasePlatform installation
+ISHIKO_CPP_BASEPLATFORM_ROOT ?= $(ISHIKO_CPP)/base-platform
+# Path to the Boost installation
+ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
+# Path to the Ishiko FileSystem installation
+ISHIKO_CPP_FILESYSTEM_ROOT ?= $(ISHIKO_CPP)/filesystem
+# Path to the pugixml installation
+ISHIKO_CPP_PUGIXML_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_PUGIXML)
+# Path to the Ishiko XML installation
+ISHIKO_CPP_XML_ROOT ?= $(ISHIKO_CPP)/xml
+
+# ------------
+
 all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a
 
 ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a: $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o
@@ -61,10 +91,10 @@ all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyD
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o: ../../src/DoxygenXMLIndex.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLIndex.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLIndex.cpp
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o: ../../src/DoxygenXMLOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o

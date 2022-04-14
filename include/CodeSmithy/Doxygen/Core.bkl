@@ -1,10 +1,13 @@
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/xml/include/Ishiko/XML.bkl;
+
 setting CODESMITHYIDE_DOXYGEN_ROOT
 {
     help = "Path to the CodeSmithyIDE/Doxygen installation";
     default = '$(CODESMITHYIDE)/doxygen';
 }
 
-template CodeSmithyDoxygenCore
+template CodeSmithyDoxygenCore : IshikoXML
 {
     includedirs += $(CODESMITHYIDE_DOXYGEN_ROOT)/include;
 

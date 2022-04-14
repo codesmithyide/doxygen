@@ -37,11 +37,13 @@ endif
 # Additionally, this makefile is customizable with the following
 # settings:
 #
-#      CODESMITHYIDE_DOXYGEN_ROOT     Path to the CodeSmithyIDE/Doxygen installation
-#      ISHIKO_CPP_BASEPLATFORM_ROOT   Path to the Ishiko BasePlatform installation
 #      ISHIKO_CPP_ERRORS_ROOT         Path to the Ishiko Errors installation
+#      ISHIKO_CPP_BASEPLATFORM_ROOT   Path to the Ishiko BasePlatform installation
 #      ISHIKO_CPP_BOOST_ROOT          Path to the Boost installation
 #      ISHIKO_CPP_FILESYSTEM_ROOT     Path to the Ishiko FileSystem installation
+#      ISHIKO_CPP_PUGIXML_ROOT        Path to the pugixml installation
+#      ISHIKO_CPP_XML_ROOT            Path to the Ishiko XML installation
+#      CODESMITHYIDE_DOXYGEN_ROOT     Path to the CodeSmithyIDE/Doxygen installation
 #      ISHIKO_CPP_TEXT_ROOT           Path to the Ishiko/Text installation
 #      ISHIKO_CPP_TYPES_ROOT          Path to the Ishiko Types installation
 #      ISHIKO_CPP_DIFF_ROOT           Path to the Ishiko Diff installation
@@ -67,16 +69,20 @@ endif
 # Configurable settings:
 # 
 
-# Path to the CodeSmithyIDE/Doxygen installation
-CODESMITHYIDE_DOXYGEN_ROOT ?= $(CODESMITHYIDE)/doxygen
-# Path to the Ishiko BasePlatform installation
-ISHIKO_CPP_BASEPLATFORM_ROOT ?= $(ISHIKO_CPP)/base-platform
 # Path to the Ishiko Errors installation
 ISHIKO_CPP_ERRORS_ROOT ?= $(ISHIKO_CPP)/errors
+# Path to the Ishiko BasePlatform installation
+ISHIKO_CPP_BASEPLATFORM_ROOT ?= $(ISHIKO_CPP)/base-platform
 # Path to the Boost installation
 ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
 # Path to the Ishiko FileSystem installation
 ISHIKO_CPP_FILESYSTEM_ROOT ?= $(ISHIKO_CPP)/filesystem
+# Path to the pugixml installation
+ISHIKO_CPP_PUGIXML_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_PUGIXML)
+# Path to the Ishiko XML installation
+ISHIKO_CPP_XML_ROOT ?= $(ISHIKO_CPP)/xml
+# Path to the CodeSmithyIDE/Doxygen installation
+CODESMITHYIDE_DOXYGEN_ROOT ?= $(CODESMITHYIDE)/doxygen
 # Path to the Ishiko/Text installation
 ISHIKO_CPP_TEXT_ROOT ?= $(ISHIKO_CPP)/text
 # Path to the Ishiko Types installation
@@ -93,16 +99,16 @@ ISHIKO_CPP_TESTFRAMEWORK_ROOT ?= $(ISHIKO_CPP)/test-framework
 all: $(_builddir)CodeSmithyDoxygenCoreTests
 
 $(_builddir)CodeSmithyDoxygenCoreTests: $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLIndexTests.o $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLOutputTests.o $(_builddir)CodeSmithyDoxygenCoreTests_main.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLIndexTests.o $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLOutputTests.o $(_builddir)CodeSmithyDoxygenCoreTests_main.o -L$(CODESMITHYIDE_DOXYGEN_ROOT)/lib -L$(ISHIKO_CPP_ERRORS_ROOT)/lib -L$(ISHIKO_CPP_BOOST_ROOT)/lib -L$(ISHIKO_CPP_FILESYSTEM_ROOT)/lib -L$(ISHIKO_CPP_TEXT_ROOT)/lib -L$(ISHIKO_CPP_TYPES_ROOT)/lib -L$(ISHIKO_CPP_DIFF_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/lib -lIshikoTestFramework -lIshikoTestFrameworkCore -lIshikoProcess -lboost_filesystem -pthread
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLIndexTests.o $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLOutputTests.o $(_builddir)CodeSmithyDoxygenCoreTests_main.o -L$(ISHIKO_CPP_ERRORS_ROOT)/lib -L$(ISHIKO_CPP_BOOST_ROOT)/lib -L$(ISHIKO_CPP_FILESYSTEM_ROOT)/lib -L$(ISHIKO_CPP_XML_ROOT)/lib -L$(CODESMITHYIDE_DOXYGEN_ROOT)/lib -L$(ISHIKO_CPP_TEXT_ROOT)/lib -L$(ISHIKO_CPP_TYPES_ROOT)/lib -L$(ISHIKO_CPP_DIFF_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/lib -lIshikoTestFramework -lIshikoTestFrameworkCore -lIshikoProcess -lboost_filesystem -pthread
 
 $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLIndexTests.o: ../../src/DoxygenXMLIndexTests.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(CODESMITHYIDE_DOXYGEN_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/DoxygenXMLIndexTests.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I$(CODESMITHYIDE_DOXYGEN_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/DoxygenXMLIndexTests.cpp
 
 $(_builddir)CodeSmithyDoxygenCoreTests_DoxygenXMLOutputTests.o: ../../src/DoxygenXMLOutputTests.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(CODESMITHYIDE_DOXYGEN_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/DoxygenXMLOutputTests.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I$(CODESMITHYIDE_DOXYGEN_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/DoxygenXMLOutputTests.cpp
 
 $(_builddir)CodeSmithyDoxygenCoreTests_main.o: ../../src/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(CODESMITHYIDE_DOXYGEN_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I$(CODESMITHYIDE_DOXYGEN_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/main.cpp
 
 clean:
 	rm -f $(_builddir)*.o
