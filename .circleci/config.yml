@@ -14,10 +14,10 @@ jobs:
           command: cd /codesmithyide/doxygen/core/build/gnumake && make
       - run:
           name: Test build
-          command: cd /projects/codesmithyide/doxygen/core/tests/build/gnumake && make
+          command: cd /codesmithyide/doxygen/core/tests/build/gnumake && make
       - run:
           name: Run the tests
-          command: cd /projects/codesmithyide/doxygen/core/tests/build/gnumake && ./CodeSmithyDoxygenCoreTests
+          command: cd /codesmithyide/doxygen/core/tests/build/gnumake && ./CodeSmithyDoxygenCoreTests
 workflows:
   version: 2
   continuous_build:
