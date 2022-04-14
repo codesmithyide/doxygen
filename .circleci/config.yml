@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: codesmithy/gcc-build-prerequisites:0.3.0
+    steps:
+      - run: 
+          name: "Set CODESMITHYIDE environment variable"
+          command: echo 'export CODESMITHYIDE="/codesmithyide"' >> $BASH_ENV
+      - checkout:
+          path: /codesmithyide/doxygen
+      - run:
+          name: Build CodeSmithy/Doxygen/Core
+          command: cd /codesmithyide/doxygen/core/build/gnumake && make
+workflows:
+  version: 2
+  continuous_build:
+    jobs:
+      - build
+  weekly_build:
+    jobs:
+      - build
+    triggers:
+      - schedule:
+          cron: "0 8 * * 0"
+          filters:
+            branches:
+              only:
+                 - main
