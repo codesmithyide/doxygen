@@ -152,10 +152,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\DoxygenXMLIndexTests.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLOutputTests.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\DoxygenXMLIndexTests.hpp" />
     <ClInclude Include="..\..\src\DoxygenXMLOutputTests.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

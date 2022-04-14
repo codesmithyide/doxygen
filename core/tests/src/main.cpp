@@ -4,6 +4,7 @@
     See https://github.com/codesmithyide/doxygen/blob/main/LICENSE.txt
 */
 
+#include "DoxygenXMLIndexTests.hpp"
 #include "DoxygenXMLOutputTests.hpp"
 #include <Ishiko/TestFramework.hpp>
 
@@ -14,6 +15,7 @@ int main(int argc, char* argv[])
     TestHarness theTestHarness("CodeSmithyDoxygenCore Library Tests");
 
     TestSequence& theTests = theTestHarness.tests();
+    theTests.append<DoxygenXMLIndexTests>();
     theTests.append<DoxygenXMLOutputTests>();
 
     return theTestHarness.run();

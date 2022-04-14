@@ -56,9 +56,12 @@ $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_er
 endif
 all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a
 
-../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a: $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o
-	$(AR) rc $@ $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o
+../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a: $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o
+	$(AR) rc $@ $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o
 	$(RANLIB) $@
+
+$(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o: ../../src/DoxygenXMLIndex.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLIndex.cpp
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o: ../../src/DoxygenXMLOutput.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLOutput.cpp
