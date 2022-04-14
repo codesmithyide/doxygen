@@ -17,13 +17,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\CodeSmithy\DoxygenCore\Core.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\CodeSmithy\DoxygenCore\Core\linkoptions.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\CodeSmithy\DoxygenCore\Core\DoxygenXMLOutput.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLOutput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

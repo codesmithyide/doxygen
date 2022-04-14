@@ -61,7 +61,7 @@ all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyD
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o: ../../src/DoxygenXMLOutput.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/Doxygen -std=c++11 ../../src/DoxygenXMLOutput.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLOutput.cpp
 
 clean:
 	rm -f $(_builddir)*.o
