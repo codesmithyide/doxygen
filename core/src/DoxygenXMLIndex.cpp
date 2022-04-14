@@ -10,6 +10,11 @@
 
 using namespace CodeSmithy;
 
+DoxygenXMLIndex::ClassInfo::ClassInfo(std::string name, std::string refId)
+    : name(std::move(name)), refId(std::move(refId))
+{
+}
+
 DoxygenXMLIndex DoxygenXMLIndex::FromFile(const boost::filesystem::path& path)
 {
     DoxygenXMLIndex index;
@@ -32,7 +37,7 @@ DoxygenXMLIndex DoxygenXMLIndex::FromFile(const boost::filesystem::path& path)
         if (strncmp(kindAttribute.value(), "class", 5) == 0)
         {
             // TODO: robustness
-            index.m_classes.push_back(compoundNode.child_value("name"));
+            index.m_classes.emplace_back(compoundNode.child_value("name"), compoundNode.attribute("refid").value());
         }
         compoundNode = compoundNode.next_sibling();
     }
@@ -40,7 +45,7 @@ DoxygenXMLIndex DoxygenXMLIndex::FromFile(const boost::filesystem::path& path)
     return index;
 }
 
-const std::vector<std::string>& DoxygenXMLIndex::classes() const
+const std::vector<DoxygenXMLIndex::ClassInfo>& DoxygenXMLIndex::classes() const
 {
     return m_classes;
 }

@@ -17,12 +17,20 @@ namespace CodeSmithy
     class DoxygenXMLIndex
     {
     public:
+        struct ClassInfo
+        {
+            ClassInfo(std::string name, std::string refId);
+
+            std::string name;
+            std::string refId;
+        };
+
         static DoxygenXMLIndex FromFile(const boost::filesystem::path& path);
 
-        const std::vector<std::string>& classes() const;
+        const std::vector<ClassInfo>& classes() const;
 
     private:
-        std::vector<std::string> m_classes;
+        std::vector<ClassInfo> m_classes;
     };
 
 }

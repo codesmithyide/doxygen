@@ -29,9 +29,10 @@ void DoxygenXMLIndexTests::FromFileTest1(Test& test)
 {
     DoxygenXMLIndex index = DoxygenXMLIndex::FromFile(test.context().getTestDataPath("cpp/cpp-code-1/xml/index.xml"));
 
-    const std::vector<std::string>& classes = index.classes();
+    const std::vector<DoxygenXMLIndex::ClassInfo>& classes = index.classes();
 
     ISHIKO_TEST_ABORT_IF_NEQ(classes.size(), 1);
-    ISHIKO_TEST_FAIL_IF_NEQ(classes[0], "Polygon");
+    ISHIKO_TEST_FAIL_IF_NEQ(classes[0].name, "Polygon");
+    ISHIKO_TEST_FAIL_IF_NEQ(classes[0].refId, "class_polygon");
     ISHIKO_TEST_PASS();
 }
