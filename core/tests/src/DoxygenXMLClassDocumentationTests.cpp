@@ -30,5 +30,6 @@ void DoxygenXMLClassDocumentationTests::FromFileTest1(Test& test)
         DoxygenXMLClassDocumentation::FromFile(test.context().getTestDataPath("cpp/cpp-code-1/xml/class_polygon.xml"));
 
     ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.name(), "Polygon");
+    ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.header(), "Polygon.h")
     ISHIKO_TEST_PASS();
 }

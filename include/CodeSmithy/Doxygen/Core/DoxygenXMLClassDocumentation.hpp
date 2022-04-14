@@ -7,6 +7,7 @@
 #ifndef _CODESMITHY_DOXYGEN_CORE_DOXYGENXMLCLASSDOCUMENTATION_HPP_
 #define _CODESMITHY_DOXYGEN_CORE_DOXYGENXMLCLASSDOCUMENTATION_HPP_
 
+#include "DoxygenXMLDescription.hpp"
 #include <boost/filesystem.hpp>
 #include <string>
 
@@ -18,11 +19,13 @@ namespace CodeSmithy
         static DoxygenXMLClassDocumentation FromFile(const boost::filesystem::path& path);
 
         const std::string& name() const;
-        const std::string& briefDescription() const;
+        const std::string& header() const;
+        const DoxygenXMLDescription& briefDescription() const;
 
     private:
         std::string m_name;
-        std::string m_briefDescription;
+        std::string m_header;
+        DoxygenXMLDescription m_briefDescription;
     };
 }
 

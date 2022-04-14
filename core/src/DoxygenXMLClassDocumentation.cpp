@@ -25,7 +25,8 @@ DoxygenXMLClassDocumentation DoxygenXMLClassDocumentation::FromFile(const boost:
     pugi::xml_node doxygenNode = document.root().child("doxygen");
     pugi::xml_node classNode = doxygenNode.child("compounddef");
     classDocumentation.m_name = classNode.child_value("compoundname");
-    classDocumentation.m_briefDescription = classNode.child_value("briefdescription");
+    classDocumentation.m_header = classNode.child_value("includes");
+    //classDocumentation.m_briefDescription = classNode.child_value("briefdescription");
 
     return classDocumentation;
 }
@@ -35,7 +36,12 @@ const std::string& DoxygenXMLClassDocumentation::name() const
     return m_name;
 }
 
-const std::string& DoxygenXMLClassDocumentation::briefDescription() const
+const std::string& DoxygenXMLClassDocumentation::header() const
+{
+    return m_header;
+}
+
+const DoxygenXMLDescription& DoxygenXMLClassDocumentation::briefDescription() const
 {
     return m_briefDescription;
 }
