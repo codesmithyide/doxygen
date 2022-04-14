@@ -1,0 +1,20 @@
+setting CODESMITHYIDE_DOXYGEN_ROOT
+{
+    help = "Path to the CodeSmithyIDE/Doxygen installation";
+    default = '$(CODESMITHYIDE)/doxygen';
+}
+
+template CodeSmithyDoxygenCore
+{
+    includedirs += $(CODESMITHYIDE_DOXYGEN_ROOT)/include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(CODESMITHYIDE_DOXYGEN_ROOT)/lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(CODESMITHYIDE_DOXYGEN_ROOT)/lib/$(arch);
+    }
+}

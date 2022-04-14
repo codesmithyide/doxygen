@@ -5,7 +5,9 @@
 */
 
 #include "DoxygenXMLOutputTests.hpp"
+#include "CodeSmithy/Doxygen/Core/DoxygenXMLOutput.hpp"
 
+using namespace CodeSmithy;
 using namespace Ishiko;
 
 DoxygenXMLOutputTests::DoxygenXMLOutputTests(const TestNumber& number, const TestContext& context)
@@ -16,4 +18,7 @@ DoxygenXMLOutputTests::DoxygenXMLOutputTests(const TestNumber& number, const Tes
 
 void DoxygenXMLOutputTests::ConstructorTest1(Test& test)
 {
+    DoxygenXMLOutput doxygenXMLOutput;
+
+    ISHIKO_TEST_PASS();
 }

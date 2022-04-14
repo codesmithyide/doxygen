@@ -1,3 +1,5 @@
+codesmithyidepath = envvar("CODESMITHYIDE");
+import $(codesmithyidepath)/doxygen/include/CodeSmithy/Doxygen/Core.bkl;
 ishikopath = envvar("ISHIKO_CPP");
 import $(ishikopath)/test-framework/include/Ishiko/TestFramework/Core.bkl;
 
@@ -9,7 +11,7 @@ vs2017.solutionfile = ../vc15/CodeSmithyDoxygenCoreTests.sln;
 vs2015.solutionfile = ../vc14/CodeSmithyDoxygenCoreTests.sln;
 vs2013.solutionfile = ../vc12/CodeSmithyDoxygenCoreTests.sln;
 
-program CodeSmithyDoxygenCoreTests: IshikoTestFrameworkCore
+program CodeSmithyDoxygenCoreTests : CodeSmithyDoxygenCore, IshikoTestFrameworkCore
 {
     archs = x86 x86_64;
 
