@@ -151,15 +151,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\DoxygenXMLClassDocumentation.cpp" />
+    <ClCompile Include="..\..\src\DoxygenXMLDescription.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLIndex.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLClassDocumentation.hpp" />
-    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\linkoptions.hpp" />
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLDescription.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLIndex.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLOutput.hpp" />
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\linkoptions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

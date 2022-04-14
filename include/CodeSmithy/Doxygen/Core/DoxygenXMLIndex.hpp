@@ -13,7 +13,6 @@
 
 namespace CodeSmithy
 {
-
     class DoxygenXMLIndex
     {
     public:
@@ -32,7 +31,6 @@ namespace CodeSmithy
     private:
         std::vector<ClassInfo> m_classes;
     };
-
 }
 
 #endif

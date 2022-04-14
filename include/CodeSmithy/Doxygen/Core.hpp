@@ -8,6 +8,7 @@
 #define _CODESMITHY_DOXYGEN_CORE_HPP_
 
 #include "Core/DoxygenXMLClassDocumentation.hpp"
+#include "Core/DoxygenXMLDescription.hpp"
 #include "Core/DoxygenXMLIndex.hpp"
 #include "Core/DoxygenXMLOutput.hpp"
 #include "Core/linkoptions.hpp"

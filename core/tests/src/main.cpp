@@ -5,6 +5,7 @@
 */
 
 #include "DoxygenXMLClassDocumentationTests.hpp"
+#include "DoxygenXMLDescriptionTests.hpp"
 #include "DoxygenXMLIndexTests.hpp"
 #include "DoxygenXMLOutputTests.hpp"
 #include "CodeSmithy/Doxygen/Core/linkoptions.hpp"
@@ -20,6 +21,7 @@ int main(int argc, char* argv[])
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<DoxygenXMLIndexTests>();
+    theTests.append<DoxygenXMLDescriptionTests>();
     theTests.append<DoxygenXMLClassDocumentationTests>();
     theTests.append<DoxygenXMLOutputTests>();
 

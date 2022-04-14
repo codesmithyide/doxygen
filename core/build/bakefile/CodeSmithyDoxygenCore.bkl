@@ -34,14 +34,16 @@ library CodeSmithyDoxygenCore : IshikoXML
     {
         ../../../include/CodeSmithy/Doxygen/Core.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLClassDocumentation.hpp
-        ../../../include/CodeSmithy/Doxygen/Core/linkoptions.hpp
+        ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLDescription.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLIndex.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLOutput.hpp
+        ../../../include/CodeSmithy/Doxygen/Core/linkoptions.hpp
     }
 
     sources
     {
         ../../src/DoxygenXMLClassDocumentation.cpp
+        ../../src/DoxygenXMLDescription.cpp
         ../../src/DoxygenXMLIndex.cpp
         ../../src/DoxygenXMLOutput.cpp
     }

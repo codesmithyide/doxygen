@@ -20,6 +20,9 @@
     <ClInclude Include="..\..\src\DoxygenXMLClassDocumentationTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\DoxygenXMLDescriptionTests.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\DoxygenXMLIndexTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -29,6 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\DoxygenXMLClassDocumentationTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DoxygenXMLDescriptionTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\DoxygenXMLIndexTests.cpp">
