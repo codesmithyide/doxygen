@@ -23,12 +23,14 @@ program CodeSmithyDoxygenCoreTests : CodeSmithyDoxygenCore, IshikoTestFrameworkC
 
     headers
     {
+        ../../src/DoxygenXMLClassDocumentationTests.hpp
         ../../src/DoxygenXMLIndexTests.hpp
         ../../src/DoxygenXMLOutputTests.hpp
     }
 
     sources
     {
+        ../../src/DoxygenXMLClassDocumentationTests.cpp
         ../../src/DoxygenXMLIndexTests.cpp
         ../../src/DoxygenXMLOutputTests.cpp
         ../../src/main.cpp

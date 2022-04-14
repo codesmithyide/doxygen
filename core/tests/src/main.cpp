@@ -4,6 +4,7 @@
     See https://github.com/codesmithyide/doxygen/blob/main/LICENSE.txt
 */
 
+#include "DoxygenXMLClassDocumentationTests.hpp"
 #include "DoxygenXMLIndexTests.hpp"
 #include "DoxygenXMLOutputTests.hpp"
 #include "CodeSmithy/Doxygen/Core/linkoptions.hpp"
@@ -19,6 +20,7 @@ int main(int argc, char* argv[])
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<DoxygenXMLIndexTests>();
+    theTests.append<DoxygenXMLClassDocumentationTests>();
     theTests.append<DoxygenXMLOutputTests>();
 
     return theTestHarness.run();

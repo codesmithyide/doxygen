@@ -33,6 +33,7 @@ library CodeSmithyDoxygenCore : IshikoXML
     headers
     {
         ../../../include/CodeSmithy/Doxygen/Core.hpp
+        ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLClassDocumentation.hpp
         ../../../include/CodeSmithy/Doxygen/Core/linkoptions.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLIndex.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLOutput.hpp
@@ -40,6 +41,7 @@ library CodeSmithyDoxygenCore : IshikoXML
 
     sources
     {
+        ../../src/DoxygenXMLClassDocumentation.cpp
         ../../src/DoxygenXMLIndex.cpp
         ../../src/DoxygenXMLOutput.cpp
     }
