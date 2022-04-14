@@ -20,14 +20,32 @@
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\linkoptions.hpp">
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLClassDocumentation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLDescription.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLIndex.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLOutput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\linkoptions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\DoxygenXMLClassDocumentation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DoxygenXMLDescription.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DoxygenXMLIndex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\DoxygenXMLOutput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
