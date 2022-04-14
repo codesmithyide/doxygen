@@ -19,8 +19,14 @@ program CodeSmithyDoxygenCoreTests: IshikoTestFrameworkCore
         libs += IshikoTestFramework IshikoTestFrameworkCore IshikoProcess boost_filesystem;
     }
 
+    headers
+    {
+        ../../src/DoxygenXMLOutputTests.hpp
+    }
+
     sources
     {
+        ../../src/DoxygenXMLOutputTests.cpp
         ../../src/main.cpp
     }
 }
