@@ -1,0 +1,34 @@
+codesmithyidepath = envvar("CODESMITHYIDE");
+import $(codesmithyidepath)/doxygen/include/CodeSmithy/Doxygen/Core.bkl;
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/test-framework/include/Ishiko/TestFramework/Core.bkl;
+
+toolsets = gnu vs2019 vs2017 vs2015 vs2013;
+
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2019.solutionfile = ../vc16/CodeSmithyDoxygenCoreTests.sln;
+vs2017.solutionfile = ../vc15/CodeSmithyDoxygenCoreTests.sln;
+vs2015.solutionfile = ../vc14/CodeSmithyDoxygenCoreTests.sln;
+vs2013.solutionfile = ../vc12/CodeSmithyDoxygenCoreTests.sln;
+
+program CodeSmithyDoxygenCoreTests : CodeSmithyDoxygenCore, IshikoTestFrameworkCore
+{
+    archs = x86 x86_64;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        libs += IshikoTestFramework IshikoTestFrameworkCore IshikoProcess boost_filesystem;
+    }
+
+    headers
+    {
+        ../../src/DoxygenXMLOutputTests.hpp
+    }
+
+    sources
+    {
+        ../../src/DoxygenXMLOutputTests.cpp
+        ../../src/main.cpp
+    }
+}
