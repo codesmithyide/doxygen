@@ -5,3 +5,10 @@
 */
 
 #include "DoxygenXMLDescription.hpp"
+
+using namespace CodeSmithy;
+
+DoxygenXMLDescription::DoxygenXMLDescription(pugi::xml_node desciptionRoot)
+{
+    m_description.append_copy(desciptionRoot);
+}

@@ -21,8 +21,8 @@ int main(int argc, char* argv[])
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<DoxygenXMLIndexTests>();
-    theTests.append<DoxygenXMLDescriptionTests>();
     theTests.append<DoxygenXMLClassDocumentationTests>();
+    theTests.append<DoxygenXMLDescriptionTests>();
     theTests.append<DoxygenXMLOutputTests>();
 
     return theTestHarness.run();
