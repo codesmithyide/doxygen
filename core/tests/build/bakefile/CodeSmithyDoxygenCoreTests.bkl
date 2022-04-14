@@ -16,6 +16,7 @@ program CodeSmithyDoxygenCoreTests: IshikoTestFrameworkCore
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
+        libs += IshikoTestFramework IshikoTestFrameworkCore;
     }
 
     sources
