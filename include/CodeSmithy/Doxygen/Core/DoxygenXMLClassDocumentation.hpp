@@ -8,8 +8,10 @@
 #define _CODESMITHY_DOXYGEN_CORE_DOXYGENXMLCLASSDOCUMENTATION_HPP_
 
 #include "DoxygenXMLDescription.hpp"
+#include "DoxygenXMLFunctionDocumentation.hpp"
 #include <boost/filesystem.hpp>
 #include <string>
+#include <vector>
 
 namespace CodeSmithy
 {
@@ -21,11 +23,13 @@ namespace CodeSmithy
         const std::string& name() const;
         const std::string& header() const;
         const DoxygenXMLDescription& briefDescription() const;
+        const std::vector<DoxygenXMLFunctionDocumentation>& methods() const;
 
     private:
         std::string m_name;
         std::string m_header;
         DoxygenXMLDescription m_briefDescription;
+        std::vector<DoxygenXMLFunctionDocumentation> m_methods;
     };
 }
 
