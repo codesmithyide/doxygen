@@ -28,6 +28,29 @@ DoxygenXMLClassDocumentation DoxygenXMLClassDocumentation::FromFile(const boost:
     classDocumentation.m_header = classNode.child_value("includes");
     classDocumentation.m_briefDescription = DoxygenXMLDescription(classNode.child("briefdescription"));
 
+    pugi::xml_node sectionNode = classNode.first_child();
+    while (sectionNode)
+    {
+        if (strncmp(sectionNode.name(), "sectiondef", 11) == 0)
+        {
+            // TODO robustness
+            if (strncmp(sectionNode.attribute("kind").value(), "public-func", 12) == 0)
+            {
+                pugi::xml_node memberNode = sectionNode.first_child();
+                while (memberNode)
+                {
+                    if (strncmp(memberNode.name(), "memberdef", 10) == 0)
+                    {
+                        classDocumentation.m_methods.emplace_back(memberNode.child_value("name"));
+                    }
+                    memberNode = memberNode.next_sibling();
+                }
+            }
+        }
+
+        sectionNode = sectionNode.next_sibling();
+    }
+
     return classDocumentation;
 }
 
@@ -44,4 +67,9 @@ const std::string& DoxygenXMLClassDocumentation::header() const
 const DoxygenXMLDescription& DoxygenXMLClassDocumentation::briefDescription() const
 {
     return m_briefDescription;
+}
+
+const std::vector<DoxygenXMLFunctionDocumentation>& DoxygenXMLClassDocumentation::methods() const
+{
+    return m_methods;
 }
