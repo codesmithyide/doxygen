@@ -10,6 +10,7 @@
 #include "DoxygenXMLDescription.hpp"
 #include "DoxygenXMLFunctionDocumentation.hpp"
 #include "DoxygenXMLInheritanceRelationship.hpp"
+#include "DoxygenXMLVariableDocumentation.hpp"
 #include <boost/filesystem.hpp>
 #include <string>
 #include <vector>
@@ -25,14 +26,16 @@ namespace CodeSmithy
         const std::string& header() const;
         const DoxygenXMLDescription& briefDescription() const;
         const std::vector<DoxygenXMLInheritanceRelationship>& baseClasses() const;
-        const std::vector<DoxygenXMLFunctionDocumentation>& methods() const;
+        const std::vector<DoxygenXMLFunctionDocumentation>& functions() const;
+        const std::vector<DoxygenXMLVariableDocumentation>& variables() const;
 
     private:
         std::string m_name;
         std::string m_header;
         DoxygenXMLDescription m_briefDescription;
         std::vector<DoxygenXMLInheritanceRelationship> m_baseClasses;
-        std::vector<DoxygenXMLFunctionDocumentation> m_methods;
+        std::vector<DoxygenXMLFunctionDocumentation> m_functions;
+        std::vector<DoxygenXMLVariableDocumentation> m_variables;
     };
 }
 

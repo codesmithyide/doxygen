@@ -156,6 +156,7 @@
     <ClCompile Include="..\..\src\DoxygenXMLIndex.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLInheritanceRelationship.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLOutput.cpp" />
+    <ClCompile Include="..\..\src\DoxygenXMLVariableDocumentation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core.hpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLIndex.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLInheritanceRelationship.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLOutput.hpp" />
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLVariableDocumentation.hpp" />
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\linkoptions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
