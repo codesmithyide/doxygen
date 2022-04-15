@@ -28,15 +28,19 @@ DoxygenXMLClassDocumentation DoxygenXMLClassDocumentation::FromFile(const boost:
     classDocumentation.m_header = classNode.child_value("includes");
     classDocumentation.m_briefDescription = DoxygenXMLDescription(classNode.child("briefdescription"));
 
-    pugi::xml_node sectionNode = classNode.first_child();
-    while (sectionNode)
+    pugi::xml_node node = classNode.first_child();
+    while (node)
     {
-        if (strncmp(sectionNode.name(), "sectiondef", 11) == 0)
+        if (strncmp(node.name(), "basecompoundref", 16) == 0)
+        {
+            classDocumentation.m_baseClasses.emplace_back(node.text().as_string());
+        }
+        else if (strncmp(node.name(), "sectiondef", 11) == 0)
         {
             // TODO robustness
-            if (strncmp(sectionNode.attribute("kind").value(), "public-func", 12) == 0)
+            if (strncmp(node.attribute("kind").value(), "public-func", 12) == 0)
             {
-                pugi::xml_node memberNode = sectionNode.first_child();
+                pugi::xml_node memberNode = node.first_child();
                 while (memberNode)
                 {
                     if (strncmp(memberNode.name(), "memberdef", 10) == 0)
@@ -48,7 +52,7 @@ DoxygenXMLClassDocumentation DoxygenXMLClassDocumentation::FromFile(const boost:
             }
         }
 
-        sectionNode = sectionNode.next_sibling();
+        node = node.next_sibling();
     }
 
     return classDocumentation;
@@ -67,6 +71,11 @@ const std::string& DoxygenXMLClassDocumentation::header() const
 const DoxygenXMLDescription& DoxygenXMLClassDocumentation::briefDescription() const
 {
     return m_briefDescription;
+}
+
+const std::vector<DoxygenXMLInheritanceRelationship>& DoxygenXMLClassDocumentation::baseClasses() const
+{
+    return m_baseClasses;
 }
 
 const std::vector<DoxygenXMLFunctionDocumentation>& DoxygenXMLClassDocumentation::methods() const

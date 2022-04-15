@@ -18,6 +18,7 @@ private:
     static void ConstructorTest1(Ishiko::Test& test);
     static void FromFileTest1(Ishiko::Test& test);
     static void FromFileTest2(Ishiko::Test& test);
+    static void FromFileTest3(Ishiko::Test& test);
 };
 
 #endif

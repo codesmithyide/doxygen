@@ -5,3 +5,15 @@
 */
 
 #include "DoxygenXMLInheritanceRelationship.hpp"
+
+using namespace CodeSmithy;
+
+DoxygenXMLInheritanceRelationship::DoxygenXMLInheritanceRelationship(std::string baseClassName)
+    : m_baseClassName(std::move(baseClassName))
+{
+}
+
+const std::string& DoxygenXMLInheritanceRelationship::baseClassName() const
+{
+    return m_baseClassName;
+}
