@@ -32,6 +32,9 @@
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLIndex.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLInheritanceRelationship.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\include\CodeSmithy\Doxygen\Core\DoxygenXMLOutput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -50,6 +53,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\DoxygenXMLIndex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DoxygenXMLInheritanceRelationship.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\DoxygenXMLOutput.cpp">

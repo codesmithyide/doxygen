@@ -16,6 +16,7 @@ DoxygenXMLClassDocumentationTests::DoxygenXMLClassDocumentationTests(const TestN
     append<HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
     append<HeapAllocationErrorsTest>("FromFile test 1", FromFileTest1);
     append<HeapAllocationErrorsTest>("FromFile test 2", FromFileTest2);
+    append<HeapAllocationErrorsTest>("FromFile test 3", FromFileTest3);
 }
 
 void DoxygenXMLClassDocumentationTests::ConstructorTest1(Test& test)
@@ -47,5 +48,28 @@ void DoxygenXMLClassDocumentationTests::FromFileTest2(Test& test)
     ISHIKO_TEST_ABORT_IF_NEQ(methods.size(), 1);
     ISHIKO_TEST_FAIL_IF_NEQ(methods[0].name(), "draw");
   
+    ISHIKO_TEST_PASS();
+}
+
+void DoxygenXMLClassDocumentationTests::FromFileTest3(Test& test)
+{
+    DoxygenXMLClassDocumentation classDocumentation =
+        DoxygenXMLClassDocumentation::FromFile(test.context().getTestDataPath("cpp/cpp-code-3/xml/class_rectangle.xml"));
+    const std::vector<DoxygenXMLInheritanceRelationship>& baseClasses = classDocumentation.baseClasses();
+    const std::vector<DoxygenXMLFunctionDocumentation>& methods = classDocumentation.methods();
+
+    ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.name(), "Rectangle");
+    ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.header(), "Rectangle.h");
+
+    ISHIKO_TEST_ABORT_IF_NEQ(baseClasses.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(baseClasses[0].baseClassName(), "Polygon");
+
+    ISHIKO_TEST_ABORT_IF_NEQ(methods.size(), 5);
+    ISHIKO_TEST_FAIL_IF_NEQ(methods[0].name(), "draw");
+    ISHIKO_TEST_FAIL_IF_NEQ(methods[1].name(), "width");
+    ISHIKO_TEST_FAIL_IF_NEQ(methods[2].name(), "height");
+    ISHIKO_TEST_FAIL_IF_NEQ(methods[3].name(), "setWidth");
+    ISHIKO_TEST_FAIL_IF_NEQ(methods[4].name(), "setHeight");
+
     ISHIKO_TEST_PASS();
 }

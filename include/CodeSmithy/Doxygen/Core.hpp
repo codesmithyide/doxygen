@@ -10,6 +10,7 @@
 #include "Core/DoxygenXMLClassDocumentation.hpp"
 #include "Core/DoxygenXMLDescription.hpp"
 #include "Core/DoxygenXMLIndex.hpp"
+#include "Core/DoxygenXMLInheritanceRelationship.hpp"
 #include "Core/DoxygenXMLOutput.hpp"
 #include "Core/linkoptions.hpp"
 
