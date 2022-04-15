@@ -45,7 +45,19 @@ DoxygenXMLClassDocumentation DoxygenXMLClassDocumentation::FromFile(const boost:
                 {
                     if (strncmp(memberNode.name(), "memberdef", 10) == 0)
                     {
-                        classDocumentation.m_methods.emplace_back(memberNode.child_value("name"));
+                        classDocumentation.m_functions.emplace_back(memberNode.child_value("name"));
+                    }
+                    memberNode = memberNode.next_sibling();
+                }
+            }
+            else if (strncmp(node.attribute("kind").value(), "private-attrib", 15) == 0)
+            {
+                pugi::xml_node memberNode = node.first_child();
+                while (memberNode)
+                {
+                    if (strncmp(memberNode.name(), "memberdef", 10) == 0)
+                    {
+                        classDocumentation.m_variables.emplace_back(memberNode.child_value("name"));
                     }
                     memberNode = memberNode.next_sibling();
                 }
@@ -78,7 +90,12 @@ const std::vector<DoxygenXMLInheritanceRelationship>& DoxygenXMLClassDocumentati
     return m_baseClasses;
 }
 
-const std::vector<DoxygenXMLFunctionDocumentation>& DoxygenXMLClassDocumentation::methods() const
+const std::vector<DoxygenXMLFunctionDocumentation>& DoxygenXMLClassDocumentation::functions() const
 {
-    return m_methods;
+    return m_functions;
+}
+
+const std::vector<DoxygenXMLVariableDocumentation>& DoxygenXMLClassDocumentation::variables() const
+{
+    return m_variables;
 }
