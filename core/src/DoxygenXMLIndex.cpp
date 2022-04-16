@@ -15,6 +15,11 @@ DoxygenXMLIndex::ClassInfo::ClassInfo(std::string name, std::string refId)
 {
 }
 
+DoxygenXMLIndex::GroupInfo::GroupInfo(std::string name, std::string refId)
+    : name(std::move(name)), refId(std::move(refId))
+{
+}
+
 DoxygenXMLIndex DoxygenXMLIndex::FromFile(const boost::filesystem::path& path)
 {
     DoxygenXMLIndex index;
@@ -39,6 +44,11 @@ DoxygenXMLIndex DoxygenXMLIndex::FromFile(const boost::filesystem::path& path)
             // TODO: robustness
             index.m_classes.emplace_back(compoundNode.child_value("name"), compoundNode.attribute("refid").value());
         }
+        else if (strncmp(kindAttribute.value(), "group", 5) == 0)
+        {
+            // TODO: robustness
+            index.m_groups.emplace_back(compoundNode.child_value("name"), compoundNode.attribute("refid").value());
+        }
         compoundNode = compoundNode.next_sibling();
     }
 
@@ -48,4 +58,9 @@ DoxygenXMLIndex DoxygenXMLIndex::FromFile(const boost::filesystem::path& path)
 const std::vector<DoxygenXMLIndex::ClassInfo>& DoxygenXMLIndex::classes() const
 {
     return m_classes;
+}
+
+const std::vector<DoxygenXMLIndex::GroupInfo>& DoxygenXMLIndex::groups() const
+{
+    return m_groups;
 }

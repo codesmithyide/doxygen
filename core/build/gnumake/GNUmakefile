@@ -86,8 +86,8 @@ ISHIKO_CPP_XML_ROOT ?= $(ISHIKO_CPP)/xml
 
 all: ../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a
 
-../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a: $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLClassDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLDescription.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLFunctionDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLInheritanceRelationship.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLVariableDocumentation.o
-	$(AR) rc $@ $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLClassDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLDescription.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLFunctionDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLInheritanceRelationship.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLVariableDocumentation.o
+../bakefile/../../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyDoxygenCore-d,CodeSmithyDoxygenCore).a: $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLClassDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLDescription.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLFunctionDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLGroupDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLInheritanceRelationship.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLVariableDocumentation.o
+	$(AR) rc $@ $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLClassDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLDescription.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLFunctionDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLGroupDocumentation.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLInheritanceRelationship.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLOutput.o $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLVariableDocumentation.o
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLClassDocumentation.o: ../../src/DoxygenXMLClassDocumentation.cpp
@@ -98,6 +98,9 @@ $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLDescription.o: ../../src/DoxygenXMLD
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLFunctionDocumentation.o: ../../src/DoxygenXMLFunctionDocumentation.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLFunctionDocumentation.cpp
+
+$(_builddir)CodeSmithyDoxygenCore_DoxygenXMLGroupDocumentation.o: ../../src/DoxygenXMLGroupDocumentation.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLGroupDocumentation.cpp
 
 $(_builddir)CodeSmithyDoxygenCore_DoxygenXMLIndex.o: ../../src/DoxygenXMLIndex.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -DPUGIXML_HEADER_ONLY -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_PUGIXML_ROOT)/src -I$(ISHIKO_CPP_XML_ROOT)/include -I../../../include/CodeSmithy/Doxygen/Core -std=c++11 ../../src/DoxygenXMLIndex.cpp
