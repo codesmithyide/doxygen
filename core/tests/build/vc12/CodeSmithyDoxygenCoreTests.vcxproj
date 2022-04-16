@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\DoxygenXMLClassDocumentationTests.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLDescriptionTests.cpp" />
+    <ClCompile Include="..\..\src\DoxygenXMLGroupDocumentationTests.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLIndexTests.cpp" />
     <ClCompile Include="..\..\src\DoxygenXMLOutputTests.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
@@ -161,6 +162,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\DoxygenXMLClassDocumentationTests.hpp" />
     <ClInclude Include="..\..\src\DoxygenXMLDescriptionTests.hpp" />
+    <ClInclude Include="..\..\src\DoxygenXMLGroupDocumentationTests.hpp" />
     <ClInclude Include="..\..\src\DoxygenXMLIndexTests.hpp" />
     <ClInclude Include="..\..\src\DoxygenXMLOutputTests.hpp" />
   </ItemGroup>

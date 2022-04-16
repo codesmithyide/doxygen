@@ -25,6 +25,7 @@ program CodeSmithyDoxygenCoreTests : CodeSmithyDoxygenCore, IshikoTestFrameworkC
     {
         ../../src/DoxygenXMLClassDocumentationTests.hpp
         ../../src/DoxygenXMLDescriptionTests.hpp
+        ../../src/DoxygenXMLGroupDocumentationTests.hpp
         ../../src/DoxygenXMLIndexTests.hpp
         ../../src/DoxygenXMLOutputTests.hpp
     }
@@ -33,6 +34,7 @@ program CodeSmithyDoxygenCoreTests : CodeSmithyDoxygenCore, IshikoTestFrameworkC
     {
         ../../src/DoxygenXMLClassDocumentationTests.cpp
         ../../src/DoxygenXMLDescriptionTests.cpp
+        ../../src/DoxygenXMLGroupDocumentationTests.cpp
         ../../src/DoxygenXMLIndexTests.cpp
         ../../src/DoxygenXMLOutputTests.cpp
         ../../src/main.cpp
