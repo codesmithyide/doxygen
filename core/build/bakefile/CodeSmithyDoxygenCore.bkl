@@ -36,6 +36,7 @@ library CodeSmithyDoxygenCore : IshikoXML
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLClassDocumentation.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLDescription.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLFunctionDocumentation.hpp
+        ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLGroupDocumentation.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLIndex.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLInheritanceRelationship.hpp
         ../../../include/CodeSmithy/Doxygen/Core/DoxygenXMLOutput.hpp
@@ -48,6 +49,7 @@ library CodeSmithyDoxygenCore : IshikoXML
         ../../src/DoxygenXMLClassDocumentation.cpp
         ../../src/DoxygenXMLDescription.cpp
         ../../src/DoxygenXMLFunctionDocumentation.cpp
+        ../../src/DoxygenXMLGroupDocumentation.cpp
         ../../src/DoxygenXMLIndex.cpp
         ../../src/DoxygenXMLInheritanceRelationship.cpp
         ../../src/DoxygenXMLOutput.cpp
