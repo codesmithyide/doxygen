@@ -24,12 +24,22 @@ namespace CodeSmithy
             std::string refId;
         };
 
+        struct GroupInfo
+        {
+            GroupInfo(std::string name, std::string refId);
+
+            std::string name;
+            std::string refId;
+        };
+
         static DoxygenXMLIndex FromFile(const boost::filesystem::path& path);
 
         const std::vector<ClassInfo>& classes() const;
+        const std::vector<GroupInfo>& groups() const;
 
     private:
         std::vector<ClassInfo> m_classes;
+        std::vector<GroupInfo> m_groups;
     };
 }
 

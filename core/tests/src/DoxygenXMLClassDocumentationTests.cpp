@@ -10,7 +10,8 @@
 using namespace CodeSmithy;
 using namespace Ishiko;
 
-DoxygenXMLClassDocumentationTests::DoxygenXMLClassDocumentationTests(const TestNumber& number, const TestContext& context)
+DoxygenXMLClassDocumentationTests::DoxygenXMLClassDocumentationTests(const TestNumber& number,
+    const TestContext& context)
     : TestSequence(number, "DoxygenXMLClassDocumentation tests", context)
 {
     append<HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
@@ -48,7 +49,6 @@ void DoxygenXMLClassDocumentationTests::FromFileTest2(Test& test)
     ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.header(), "Polygon.h");
     ISHIKO_TEST_ABORT_IF_NEQ(functions.size(), 1);
     ISHIKO_TEST_FAIL_IF_NEQ(functions[0].name(), "draw");
-  
     ISHIKO_TEST_PASS();
 }
 
