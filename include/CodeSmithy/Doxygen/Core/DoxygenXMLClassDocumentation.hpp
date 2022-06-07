@@ -22,6 +22,7 @@ namespace CodeSmithy
     public:
         static DoxygenXMLClassDocumentation FromFile(const boost::filesystem::path& path);
 
+        const std::string& id() const;
         const std::string& name() const;
         const std::string& header() const;
         const DoxygenXMLDescription& briefDescription() const;
@@ -30,6 +31,7 @@ namespace CodeSmithy
         const std::vector<DoxygenXMLVariableDocumentation>& variables() const;
 
     private:
+        std::string m_id;
         std::string m_name;
         std::string m_header;
         DoxygenXMLDescription m_briefDescription;
