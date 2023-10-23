@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2022 Xavier Leclercq
+    Copyright (c) 2022-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/doxygen/blob/main/LICENSE.txt
 */
@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("CodeSmithyDoxygenCore Library Tests");
 
-    theTestHarness.context().setTestDataDirectory("$(CODESMITHYIDE)/doxygen-test-data");
+    theTestHarness.context().setDataDirectory("$(CODESMITHYIDE)/doxygen-test-data");
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<DoxygenXMLIndexTests>();
