@@ -18,7 +18,7 @@ program CodeSmithyDoxygenCoreTests : CodeSmithyDoxygenCore, IshikoTestFrameworkC
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += CodeSmithyDoxygenCore IshikoTestFramework IshikoTestFrameworkCore IshikoXML IshikoFileSystem IshikoProcess IshikoText IshikoErrors;
+        libs += CodeSmithyDoxygenCore IshikoTestFramework IshikoTestFrameworkCore IshikoConfiguration IshikoXML IshikoFileSystem IshikoIO IshikoProcess IshikoText IshikoErrors;
         libs += boost_filesystem;
     }
 
