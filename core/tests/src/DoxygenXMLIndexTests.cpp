@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2022 Xavier Leclercq
+    Copyright (c) 2022-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/doxygen/blob/main/LICENSE.txt
 */
@@ -28,7 +28,7 @@ void DoxygenXMLIndexTests::ConstructorTest1(Test& test)
 
 void DoxygenXMLIndexTests::FromFileTest1(Test& test)
 {
-    DoxygenXMLIndex index = DoxygenXMLIndex::FromFile(test.context().getTestDataPath("cpp/cpp-code-1/xml/index.xml"));
+    DoxygenXMLIndex index = DoxygenXMLIndex::FromFile(test.context().getDataPath("cpp/cpp-code-1/xml/index.xml"));
 
     const std::vector<DoxygenXMLIndex::ClassInfo>& classes = index.classes();
 
@@ -40,7 +40,7 @@ void DoxygenXMLIndexTests::FromFileTest1(Test& test)
 
 void DoxygenXMLIndexTests::FromFileTest2(Test& test)
 {
-    DoxygenXMLIndex index = DoxygenXMLIndex::FromFile(test.context().getTestDataPath("cpp/cpp-group-1/xml/index.xml"));
+    DoxygenXMLIndex index = DoxygenXMLIndex::FromFile(test.context().getDataPath("cpp/cpp-group-1/xml/index.xml"));
 
     const std::vector<DoxygenXMLIndex::GroupInfo>& groups = index.groups();
 

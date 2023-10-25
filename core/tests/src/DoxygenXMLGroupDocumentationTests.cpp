@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2022 Xavier Leclercq
+    Copyright (c) 2022-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/doxygen/blob/main/LICENSE.txt
 */
@@ -28,8 +28,7 @@ void DoxygenXMLGroupDocumentationTests::ConstructorTest1(Test& test)
 void DoxygenXMLGroupDocumentationTests::FromFileTest1(Test& test)
 {
     DoxygenXMLGroupDocumentation groupDocumentation =
-        DoxygenXMLGroupDocumentation::FromFile(
-            test.context().getTestDataPath("cpp/cpp-group-1/xml/group___shapes.xml"));
+        DoxygenXMLGroupDocumentation::FromFile(test.context().getDataPath("cpp/cpp-group-1/xml/group___shapes.xml"));
 
     const std::vector<DoxygenXMLGroupDocumentation::MemberInfo>& members = groupDocumentation.members();
 
