@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2022 Xavier Leclercq
+    Copyright (c) 2022-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/doxygen/blob/main/LICENSE.txt
 */
@@ -31,7 +31,7 @@ void DoxygenXMLClassDocumentationTests::ConstructorTest1(Test& test)
 void DoxygenXMLClassDocumentationTests::FromFileTest1(Test& test)
 {
     DoxygenXMLClassDocumentation classDocumentation =
-        DoxygenXMLClassDocumentation::FromFile(test.context().getTestDataPath("cpp/cpp-code-1/xml/class_polygon.xml"));
+        DoxygenXMLClassDocumentation::FromFile(test.context().getDataPath("cpp/cpp-code-1/xml/class_polygon.xml"));
 
     ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.name(), "Polygon");
     ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.header(), "Polygon.h");
@@ -42,7 +42,7 @@ void DoxygenXMLClassDocumentationTests::FromFileTest1(Test& test)
 void DoxygenXMLClassDocumentationTests::FromFileTest2(Test& test)
 {
     DoxygenXMLClassDocumentation classDocumentation =
-        DoxygenXMLClassDocumentation::FromFile(test.context().getTestDataPath("cpp/cpp-code-2/xml/class_polygon.xml"));
+        DoxygenXMLClassDocumentation::FromFile(test.context().getDataPath("cpp/cpp-code-2/xml/class_polygon.xml"));
     const std::vector<DoxygenXMLFunctionDocumentation>& functions = classDocumentation.functions();
 
     ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.name(), "Polygon");
@@ -55,7 +55,7 @@ void DoxygenXMLClassDocumentationTests::FromFileTest2(Test& test)
 void DoxygenXMLClassDocumentationTests::FromFileTest3(Test& test)
 {
     DoxygenXMLClassDocumentation classDocumentation =
-        DoxygenXMLClassDocumentation::FromFile(test.context().getTestDataPath("cpp/cpp-code-3/xml/class_rectangle.xml"));
+        DoxygenXMLClassDocumentation::FromFile(test.context().getDataPath("cpp/cpp-code-3/xml/class_rectangle.xml"));
     const std::vector<DoxygenXMLInheritanceRelationship>& baseClasses = classDocumentation.baseClasses();
     const std::vector<DoxygenXMLFunctionDocumentation>& functions = classDocumentation.functions();
 
@@ -78,7 +78,7 @@ void DoxygenXMLClassDocumentationTests::FromFileTest3(Test& test)
 void DoxygenXMLClassDocumentationTests::FromFileTest4(Test& test)
 {
     DoxygenXMLClassDocumentation classDocumentation =
-        DoxygenXMLClassDocumentation::FromFile(test.context().getTestDataPath("cpp/cpp-code-4/xml/class_canvas.xml"));
+        DoxygenXMLClassDocumentation::FromFile(test.context().getDataPath("cpp/cpp-code-4/xml/class_canvas.xml"));
     const std::vector<DoxygenXMLVariableDocumentation>& variables = classDocumentation.variables();
 
     ISHIKO_TEST_FAIL_IF_NEQ(classDocumentation.name(), "Canvas");
