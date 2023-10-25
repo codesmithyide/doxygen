@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("CodeSmithyDoxygenCore Library Tests");
 
-    theTestHarness.context().setDataDirectory("$(CODESMITHYIDE)/doxygen-test-data");
+    theTestHarness.context().setDataDirectory("${CODESMITHYIDE}/doxygen-test-data");
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<DoxygenXMLIndexTests>();
